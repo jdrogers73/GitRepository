@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;GeoQuizSecondActivity/res/layout/cheatActivity_layout.xml&apos; to &apos;activity_cheat.xml&apos;" description="Rename resource &apos;cheatActivity_layout.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/layout/cheatActivity_layout.xml" name="activity_cheat.xml" stamp="1373055645153" updateReferences="true"/>
+</session>
