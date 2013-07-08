@@ -22,7 +22,7 @@ public class QuizActivity extends Activity
 	private TextView mQuestionTextView;
 	private static final String TAG = "QuizActivity";
 	private static final String KEY_INDEX = "index";
-	private static Boolean mIsCheater = false;
+	private Boolean mIsCheater = false;
 	
 	private TrueFalse[] mQuestionBank = new TrueFalse[]
 	{
@@ -34,7 +34,9 @@ public class QuizActivity extends Activity
 	};
 	
 	private int mCurrentIndex = 0;
-
+	
+	
+	
 	private void updateQuestion()
 	{
 		//Log.d(TAG,"Updating question text for question #" + mCurrentIndex, new Exception());
@@ -154,4 +156,5 @@ public class QuizActivity extends Activity
         getMenuInflater().inflate(R.menu.quiz, menu);
         return true;
     }
+    
 }

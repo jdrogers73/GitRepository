@@ -20,7 +20,7 @@ public class QuizActivity extends Activity
 	private Button mNextButton;
 	private Button mCheatButton;
 	private TextView mQuestionTextView;
-	private static final String TAG = "QuizActivity";
+	protected static final String TAG = "QuizActivity";
 	private static final String KEY_INDEX = "index";
 	private static Boolean mIsCheater = false;
 	

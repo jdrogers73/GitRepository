@@ -39,8 +39,10 @@ public class CheatActivity extends Activity
 		
 		mAnswerTextView = (TextView) findViewById(R.id.answerTextView);
 		
-		//if(!mShowAnswerPressed)
-		setAnswerShownResult(false);
+		if(mShowAnswerPressed)
+		{
+			setAnswerShownResult(false);
+		}
 		
 		mShowAnswerButton = (Button) findViewById(R.id.show_answer_button);
 		mShowAnswerButton.setOnClickListener(new View.OnClickListener()
