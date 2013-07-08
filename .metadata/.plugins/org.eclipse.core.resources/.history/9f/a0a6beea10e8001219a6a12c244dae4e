@@ -50,30 +50,24 @@ public class QuizActivity extends Activity
 		
 		int messageResID = 0;
 		
-		if(mIsCheater)
+		if (userPressedTrue == answerIsTrue)
 		{
-			messageResID = R.string.judgment_toast;
+			messageResID = R.string.correct_toast;
 		}
 		else
 		{
-			if (userPressedTrue == answerIsTrue)
-			{
-				messageResID = R.string.correct_toast;
-			}
-			else
-			{
-				messageResID = R.string.incorrect_toast;
-			}
+			messageResID = R.string.incorrect_toast;
 		}
+		
 		Toast.makeText(this, messageResID, Toast.LENGTH_SHORT).show();
 	}
 	
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	protected void onActivityResult(int requestCode int resultCode, Intent data)
 	{
 		if (data == null)
 			return;
-		mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false);
+		mIsCheater = data.getBooleanExtra(CheatAvtivity.EXTRA_ANSWER_SHOWN, false);
 	}
 	
     @Override
@@ -114,7 +108,6 @@ public class QuizActivity extends Activity
         	public void onClick(View v)
         	{
         		mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
-        		mIsCheater = false;
         		updateQuestion();
         	}
         });

@@ -114,7 +114,6 @@ public class QuizActivity extends Activity
         	public void onClick(View v)
         	{
         		mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
-        		mIsCheater = false;
         		updateQuestion();
         	}
         });
