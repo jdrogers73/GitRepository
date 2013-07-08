@@ -1,6 +1,7 @@
 package edu.uncp.rogers.geoquizsecondactivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -17,6 +18,7 @@ public class QuizActivity extends Activity
 	private Button mTrueButton;
 	private Button mFalseButton;
 	private Button mNextButton;
+	private Button mCheatButton;
 	private TextView mQuestionTextView;
 	private static final String TAG = "QuizActivity";
 	private static final String KEY_INDEX = "index";
@@ -98,6 +100,17 @@ public class QuizActivity extends Activity
         		updateQuestion();
         	}
         });
+        
+        mCheatButton=(Button)findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() 
+        {	
+			@Override
+			public void onClick(View v) 
+			{
+				Intent i = new Intent(QuizActivity.this, CheatActivity.class);
+				startActivity(i);
+			}
+		});
         
         if(savedInstanceState != null)
         {
