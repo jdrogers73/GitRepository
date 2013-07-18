@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This line is the XML declaration line. It states what set if XML tags is being used and 
+the character set for the file  -->
+
+<!-- This line defines the name space for this XML file. Wherever "android:" appears, the name
+of the attribute includes the prefix http://schemas.android.com/apk/res/android. The colon is the 
+prefix delimiter. Then the attribute name occurs. If XML files from different applications are 
+combined, all names of elements and attributes within a name space must be unique otherwise a parser 
+cannot process the files.   -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.rogers.mapv2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+<!-- a package groups classes with a common purpose as a form of documentation-->
+<!-- versionCode is for internal version control. Each version must increment this by at least 1 -->
+<!-- versionName's only purpose is to show to users on the app store. -->
+
+<!-- minSdkVersion is used by Google Play to determine which phone can download the app. Only phones
+with a version equal to or higher than the minSdkVersion can see the app on the store. -->
+
+<!-- targetedVersion is the version of Android used to compile the source code. -->
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="edu.rogers.mapv2.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
