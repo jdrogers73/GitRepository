@@ -37,21 +37,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity 
-            android:name=".ConcertMapActivity"
-            android:label="@string/concertmap_label"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.ConcertMapActivity" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            
-        </activity>
+        <activity android:name="rogers.killersfanapp.ConcertMapActivity" />
         
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyApbih6pB5CKAoDdknsobSYejit3UROerA"/>
+            android:value="AIzaSyAxFJ0qxOUE0lh5p4pwR0UspeGuQK4gPfI"/>
         
     </application>
 

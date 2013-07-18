@@ -7,7 +7,11 @@ package edu.rogers.mapv2;
 //upon the language's rules (grammar and syntax)
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 //it is not necessary in Android to have a class or function named main.
 //the main designation is handled in the manifest file
@@ -17,6 +21,9 @@ import android.view.Menu;
 //itself a view.
 public class MainActivity extends Activity 
 {
+	//create button object
+	Button mMapButton;
+	
 	//Override means I am creating a method with the same name and parameter list as in the parent
 	//Names are case-sensitive in Java. Method names begin lowercase and use camel case for all
 	//words after the first. Lowercase is not required. It is a convention as is beginning class
@@ -42,6 +49,19 @@ public class MainActivity extends Activity
 		//inflate the layout - build it on the screen based on its configuration file in the layout
 		//folder which is in the res folder.
 		setContentView(R.layout.activity_main);
+		
+		//findViewById returns a View object which must then be cast down to a Button in order to
+		//access members specific to Button
+		mMapButton = (Button)findViewById(R.id.button_map);
+		mMapButton.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(MainActivity.this, MapActivity.class);
+				startActivity(i);
+			}
+		});
 	}
 	
 	@Override
@@ -51,4 +71,6 @@ public class MainActivity extends Activity
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	
 }

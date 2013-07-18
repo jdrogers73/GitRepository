@@ -25,9 +25,9 @@ public class MainActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				//Intent intent = new Intent(MainActivity.class, ConcertMapActivity.class);
-		//	this.startActivity(intent);
-				startActivity(new Intent("android.intent.action.ConcertMapActivity"));
+				Intent intent = new Intent(MainActivity.this, ConcertMapActivity.class);
+				startActivity(intent);
+				
 			}
 		});
 	}

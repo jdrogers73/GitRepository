@@ -98,7 +98,7 @@ does not check for matching feature support on the device before installing an a
         
         <!-- intent is not required here unless I want to make this activity available to other apps.
         Will use explicit intent instead -->
-        <activity android:name="edu.rogers.mapv2.mapActivity" />
+        <activity android:name="edu.rogers.mapv2.MapActivity" />
         
         
         <!-- The map fragment will look at this tag to obtain the API key and pass it to 

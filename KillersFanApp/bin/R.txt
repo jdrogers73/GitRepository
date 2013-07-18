@@ -62,7 +62,6 @@ int id satellite 0x7f050002
 int id terrain 0x7f050003
 int layout concertmap_layout 0x7f030000
 int layout main_layout 0x7f030001
-int layout mapfragment_layout 0x7f030002
 int menu main 0x7f090000
 int string action_settings 0x7f060018
 int string app_name 0x7f060015

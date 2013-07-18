@@ -9,6 +9,6 @@ public class ConcertMapActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.id.mapfragment);
+		setContentView(R.layout.concertmap_layout);
 	}
 }
