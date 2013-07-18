@@ -19,7 +19,7 @@
         android:onClick="onClick" />
 
     <Button
-        android:id="@+id/concertLocations"
+        android:id="@+id/button_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/concert_locations"

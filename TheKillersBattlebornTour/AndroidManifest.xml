@@ -11,11 +11,20 @@
     <permission
         android:name="edu.rogers.thekillersbattleborntour.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
-	<uses-permission android:name="edu.rogers.thekillersbattleborntour.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="edu.rogers.mapv2.permission.MAPS_RECEIVE"/>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     
+    <!-- 
+	<uses-permission android:name="edu.rogers.thekillersbattleborntour.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+	 -->
 	
 	<uses-feature
         android:glEsVersion="0x00020000"
@@ -53,18 +62,11 @@
 				<category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="edu.rogers.thekillersbattleborntour.ConcertsActivity"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.ConcertsActivity" />
-				<category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name="edu.rogers.thekillersbattleborntour.ConcertsActivity" />
         
         <meta-data
     			android:name="com.google.android.maps.v2.API_KEY"
-   				android:value="AIzaSyDWayXJJ6sGkGlKST6mrXn3H7-_lUEOqj0" />
+   				android:value="AIzaSyD3xkQwKkOOfOEIha6vAiAubPu-N1Mff8w" />
     </application>
 
 </manifest>

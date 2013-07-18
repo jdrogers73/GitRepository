@@ -15,4 +15,5 @@ developers.google.com/maps/documentation/android/start -->
         android:layout_height="match_parent"
         android:name="com.google.android.gms.maps.MapFragment" />
 	 
+	 
 </RelativeLayout>

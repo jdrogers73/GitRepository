@@ -205,7 +205,7 @@ containing a value of this type.
         public static final int Tranquilize=0x7f050010;
         public static final int WhenYouWereYoung=0x7f05000b;
         public static final int action_settings=0x7f050013;
-        public static final int concertLocations=0x7f050006;
+        public static final int button_map=0x7f050006;
         public static final int hybrid=0x7f050004;
         public static final int map=0x7f050005;
         public static final int none=0x7f050000;
@@ -216,7 +216,7 @@ containing a value of this type.
         public static final int webView1=0x7f050008;
     }
     public static final class layout {
-        public static final int concerts_layout=0x7f030000;
+        public static final int layout_concerts=0x7f030000;
         public static final int main_layout=0x7f030001;
         public static final int video_play_layout=0x7f030002;
         public static final int videos_layout=0x7f030003;

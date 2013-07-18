@@ -17,13 +17,13 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_layout);
 		
-		mConcertsButton = (Button) findViewById(R.id.concertLocations);
+		mConcertsButton = (Button) findViewById(R.id.button_map);
 		mConcertsButton.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				startActivity(new Intent("android.intent.action.ConcertsActivity"));
+				startActivity(new Intent(MainActivity.this, ConcertsActivity.class));
 			}
 		});
 	}

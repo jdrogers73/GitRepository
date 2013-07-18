@@ -1,5 +1,4 @@
 INDEX VERSION 1.126+/Users/jim/Desktop/GitRepository/.metadata/.plugins/org.eclipse.jdt.core
-742907747.index
 1415693123.index
 624641918.index
 1792782426.index
@@ -9,8 +8,6 @@ INDEX VERSION 1.126+/Users/jim/Desktop/GitRepository/.metadata/.plugins/org.ecli
 3998135994.index
 3449054320.index
 3391634340.index
-2781157885.index
-133094063.index
 3106434376.index
 335993308.index
 3825116543.index
