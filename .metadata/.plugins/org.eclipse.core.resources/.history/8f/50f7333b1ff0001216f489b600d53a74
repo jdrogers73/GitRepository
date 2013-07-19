@@ -25,11 +25,4 @@ public class ConcertsActivity extends Activity
 	}
 }
 
-//Markers should autoupdate as new concerts are performed.
-//Markers should pull up setlist and all relevant YouTube videos
-//Turn markers on and off by criteria
-//custom markers for each tour
-//date
-//start time
-//festival
-//process JSON file
+
