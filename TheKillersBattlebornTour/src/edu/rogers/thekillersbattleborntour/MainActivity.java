@@ -10,6 +10,8 @@ import android.widget.Button;
 public class MainActivity extends Activity
 {
 	private Button mConcertsButton;
+	private Button mTwitterButton;
+	private Button mVideosButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -26,6 +28,27 @@ public class MainActivity extends Activity
 				startActivity(new Intent(MainActivity.this, ConcertsActivity.class));
 			}
 		});
+		
+		mTwitterButton = (Button) findViewById(R.id.button_twitter);
+		mTwitterButton.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				startActivity(new Intent(MainActivity.this, TwitterActivity.class));
+			}
+		});
+		
+		mVideosButton = (Button) findViewById(R.id.button_videos);
+		mVideosButton.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				startActivity(new Intent(MainActivity.this, VideoListActivity.class));
+			}
+		});
+		
 	}
 	
 	public void onClick(View view)

@@ -82,6 +82,10 @@ does not check for matching feature support on the device before installing an a
         
  <!-- declare an activity component. name is the fully qualified activity name (unique) -->
  <!-- title for the activity; will be displayed on the screen often with the activity icon -->
+ <!-- an activity must be declared in the manifest in order for it to work with the andrdoid.content.Context 
+ class. Andrdoid uses the Context class to allow access to application specific resources and class, as well
+ as upcalls for application-level operations such as launching activities, broadcasting and receiving intents,
+ etc. -->
         <activity
             android:name="edu.rogers.mapv2.MainActivity"
             android:label="@string/app_name" >

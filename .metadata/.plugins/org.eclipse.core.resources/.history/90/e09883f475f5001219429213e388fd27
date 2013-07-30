@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Killers World Tour</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="desc_runaways">Runaways performed on David Letterman 2012</string>
+    <string name="desc_mrbrightside">Mr Brightside performed at Big Day Out 2012</string>
+    <string name="desc_whenyouwereyoung">When You Were Young performed at Lolapalooza 2013</string>
+    <string name="desc_readmymind">Read My Mind performed in 2013</string>
+    <string name="desc_samstown">Sams Town performed in San Francisco 2013</string>
+    <string name="desc_fleshandbone">Flesh and Bone performed in San Francisco 2013</string>
+    <string name="desc_shadowplay">Shadow Play performed in San Francisco 2013</string>
+    <string name="desc_tranquilize">Tranquilize performed in London 2012</string>
+    <string name="desc_somebodytoldme">Somebody Told Me performed in Sao Paulo 2013</string>
+    <string name="desc_human">Human performed in San Francisco 2013</string>
+    <string name="desc_killers2012worldtour">Poster for BattleBorn tour in Europe 2012</string>
+    <string name="concert_locations">Concerts</string>
+    <string name="label_twitter">Twitter</string>
+
+</resources>

@@ -1,0 +1,19 @@
+package edu.rogers.criminalintent;
+
+import android.support.v4.app.Fragment;
+/*
+ * Crime Fragment is a controller object in this schema. Its role is to do the work of displaying and updating
+ * the information displayed. It will communicate with model and view objects.
+ */
+
+public class CrimeFragment extends Fragment 
+{
+	private Crime mCrime;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		mCrime = new Crime();
+	}
+}

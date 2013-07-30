@@ -46,6 +46,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="edu.rogers.thekillersbattleborntour.TwitterActivity"
+            android:label="@string/label_twitter" />
+            
+        <activity
             android:name="edu.rogers.thekillersbattleborntour.VideoListActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >

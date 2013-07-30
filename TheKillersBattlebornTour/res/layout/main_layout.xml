@@ -10,6 +10,7 @@
     android:background="#000000"
     tools:context=".MainActivity" >
     
+    
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" 
@@ -17,15 +18,46 @@
         android:contentDescription="@string/desc_killers2012worldtour"
         android:orientation="vertical" 
         android:onClick="onClick" />
-
-    <Button
-        android:id="@+id/button_map"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/concert_locations"
-        android:textColor="#f00009"
+    
+    <LinearLayout
+        android:id="@+id/layout_buttons"
+        android:layout_width="189dp"
+        android:layout_height="90dp"
         android:background="#0000"
-        android:textSize="17sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:text="@string/concert_locations"
+            android:textColor="#f00009"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <!-- Don't include the extenion on a drawable -->
+
+        <Button
+            android:id="@+id/button_twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:text="@string/label_button_twitter"
+            android:textColor="#f00009"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+        
+        <Button
+            android:id="@+id/button_videos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:text="@string/label_button_videos"
+            android:textColor="#f00009"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+        
+    </LinearLayout>
     
 </FrameLayout>

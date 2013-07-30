@@ -1,7 +1,10 @@
 package edu.uncp.rogers.geoquizsecondactivity;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,6 +31,9 @@ public class QuizActivity extends Activity
 	
 	//used to display the question
 	private TextView mQuestionTextView;
+	
+	//version used to compile app
+	private TextView mVersion;
 	
 	//Will identify the activity in the system log 
 	private static final String TAG = "QuizActivity";
@@ -56,16 +62,17 @@ public class QuizActivity extends Activity
 	//questions are saved in an array; this variable saves the index of the current question
 	private int mCurrentIndex = 0;
 	
-	//override onCreate
+	
+	@TargetApi(11)
 	@Override
+	//override onCreate
 	/*OnCreate - will create the user interface defined in activity_quiz
 	 * (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 * 
 	 * Bundle savedInstanceState - the state of the activity before onDestroy() is called
-	 * 
 	 */
-    protected void onCreate(Bundle savedInstanceState) 
+	protected void onCreate(Bundle savedInstanceState) 
     {
         //call to the Activity class to create the View Hierarchy for this activity
 		super.onCreate(savedInstanceState);
@@ -76,8 +83,19 @@ public class QuizActivity extends Activity
         //Inflate the activity_quiz layout
         setContentView(R.layout.activity_quiz);
         
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2)
+        {
+        	ActionBar actionBar = getActionBar();
+        	actionBar.setSubtitle("Bodies of Water");
+        }
         //set reference to the TextView object
         mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
+        
+        mVersion = (TextView)findViewById(R.id.textView_version);
+        mVersion.setText("Android API Level " + Build.VERSION.SDK_INT);
+        mVersion.setPadding(0, 15, 0, 15);
+        mVersion.setTextColor(0xff888888);
+        
         
         //set reference to the button that will display the word True
         mTrueButton = (Button)findViewById(R.id.true_button);
