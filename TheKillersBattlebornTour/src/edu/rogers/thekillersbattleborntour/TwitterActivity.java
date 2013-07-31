@@ -8,6 +8,7 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
+import twitter4j.conf.ConfigurationBuilder;
 
 
 
@@ -74,6 +75,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 //The following three classes are used in all Android apps
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -84,153 +86,111 @@ import android.widget.TextView;
 public class TwitterActivity extends Activity
 {
 	Button mButtonTweets;
-	String JSONString;
+	String JSONString = null;
 	TextView JSONContent;
 	
-	private String getTwitterPosts()
+	class GetTwitterTimeline extends AsyncTask<Void, String, String>
 	{
-		Log.d("Twitter4j", "Beginning Request for timeline");
-		
-		try
+		@Override
+		protected String doInBackground(Void... params) 
 		{
-			Log.d("Twitter4j", "Creating twitter object");
-			Twitter twitter = new TwitterFactory().getInstance();
+			onProgressUpdate("Beginning Request for timeline");
 			
 			try
 			{
-				Log.d("Twitter4j", "Getting authorization token");
-				twitter.setOAuthConsumer("5UjTpE4rVVZ2idZgxFFEGA", "uh6ZlPxIVvU5JIPCEuhUQzoUVnQFvxQ2t37gOTYHB4");
-				RequestToken requestToken = twitter.getOAuthRequestToken();
-				AccessToken accessToken = null;
+				onProgressUpdate("Creating twitter object");
+				ConfigurationBuilder cb = new ConfigurationBuilder();
+				cb.setDebugEnabled(true)
+				.setOAuthConsumerKey("5UjTpE4rVVZ2idZgxFFEGA")
+				.setOAuthConsumerSecret("uh6ZlPxIVvU5JIPCEuhUQzoUVnQFvxQ2t37gOTYHB4")
+				.setOAuthAccessToken("1553258071-sm4Br6uuIq5DjMgcT9EUTbfIFJ2px2gqo4sUcom")
+				.setOAuthAccessTokenSecret("T3frAADQgHzel2Qrj23t5z1naRjRTNeM93Z7Fq6Zs");
+				TwitterFactory tf = new TwitterFactory(cb.build());
+				Twitter twitter = tf.getInstance();
 				
-				while (accessToken == null)
+				try
 				{
-					Log.d("Twitter4j", requestToken.getAuthenticationURL());
-					try
+					onProgressUpdate("Getting authorization token");
+					
+					RequestToken requestToken = twitter.getOAuthRequestToken();
+					
+					AccessToken accessToken = null;
+					
+					onProgressUpdate("Getting Authorization Token");
+					while (accessToken == null)
 					{
-						accessToken = twitter.getOAuthAccessToken(requestToken);
-					}//try
-					catch(TwitterException te)
+						onProgressUpdate(requestToken.getAuthenticationURL());
+						
+						try
+						{
+							accessToken = twitter.getOAuthAccessToken();
+						}//try
+						catch(TwitterException te)
+						{
+							if (te.getStatusCode() == 401)
+							{
+								onProgressUpdate("Unable to get the access token");
+							}//if
+							else
+							{
+								te.printStackTrace();
+							}//else
+						}//catch
+					}//while
+					onProgressUpdate("Got Access Token");
+					onProgressUpdate("Access Token: " + accessToken.getToken());
+					onProgressUpdate("Access Token Secret: " + accessToken.getTokenSecret());
+				}//try
+				catch (IllegalStateException ie)
+				{
+					if(!twitter.getAuthorization().isEnabled())
 					{
-						if (te.getStatusCode() == 401)
-						{
-						Log.d("Twitter4j", "Unable to get the access token");
-						}//if
-						else
-						{
-							te.printStackTrace();
-						}//else
-					}//catch
-				}//while
-				Log.d("Twitter4j", "Got Access Token");
-				Log.d("Twitter4j", "Access Token: " + accessToken.getToken());
-				Log.d("Twitter4j", "Access Token Secret: " + accessToken.getTokenSecret());
+						onProgressUpdate("OAuth consumer key/secret is not set.");
+					}//if
+				}//catch
 			}//try
-			catch (IllegalStateException ie)
+			catch (TwitterException te)
 			{
-				if(!twitter.getAuthorization().isEnabled())
-				{
-					Log.e("Twitter4j", "OAuth consumer key/secret is not set.");
-				}//if
+				te.printStackTrace();
+				onProgressUpdate("Failed to get timeline");
 			}//catch
-		}//try
-		catch (TwitterException te)
+			
+			JSONString = "JSON content will go here";
+			
+			return JSONString;
+		}//doInBackground
+		
+		protected void onProgressUpdate(String logEntry)
 		{
-			te.printStackTrace();
-			Log.d("Twitter4j", "Failed to get timeline");
-		}//catch
+			Log.d("twitter4j", logEntry);
+		}
 		
-		String JSONString = "JSON content will go here";
-		return JSONString;
-	}//end method getTwitterPosts()
-	
-//	private String getTwitterPosts()
-//	{
-//		StringBuilder buildJSONString = new StringBuilder();
-//		//will construct the JSON string from contents of the entity returned from Twitter
-//		
-//		HttpClient client = new DefaultHttpClient();
-//		//create the client for communicating with Twitter web server
-//		
-//		HttpGet getRequest = new HttpGet("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=thekillers&count=2");
-//		//The HTTP request that will instruct Twitter's web server to send The Killer's posts in JSON format
-//		
-//		HttpResponse responseTwitter = null;
-//		
-//		//try downloading JSON string; if attempt fails, then log attempt
-//		try
-//		{
-//			//store response
-//			responseTwitter = client.execute(getRequest);
-//			
-//			//extract status line from response
-//			StatusLine statusLineTwitter = responseTwitter.getStatusLine();
-//			
-//			//extract status code from status line
-//			int statusCode = statusLineTwitter.getStatusCode();
-//			
-//			//status code 2XX means successful download
-//			if(statusCode == 200)
-//			{
-//				//extract entity from response
-//				HttpEntity entity = responseTwitter.getEntity();
-//				
-//				//setup input stream to read in entity contents which arrive in a byte stream
-//				InputStream iStream = entity.getContent();
-//				
-//				//wrap input stream in a reader which will convert bytes to corresponding Unicode characters
-//				InputStreamReader iReader = new InputStreamReader(iStream);
-//				
-//				//store characters in buffer for consistent read rate by system
-//				BufferedReader bReader = new BufferedReader(iReader);
-//				
-//				//a piece of the JSON string
-//				String jsonSubstring;
-//				
-//				//while content exists in buffer, continue extracting lines
-//				while(bReader.readLine() != null)
-//				{
-//					//read in next line
-//					jsonSubstring = bReader.readLine();
-//					
-//					//append next line to JSON string
-//					buildJSONString.append(jsonSubstring);
-//				}
-//				
-//				//close reader when finished
-//				bReader.close();
-//			}
-//			else
-//			{
-//				Log.d("JSON", "Failed to download JSON String");
-//			}
-//		}
-//		catch (Exception e)
-//		{
-//			if(responseTwitter == null)
-//			{
-//				Log.d("JSON", "GET request failed");
-//			}
-//			Log.d("fromJSONFeed", e.getLocalizedMessage());
-//		}
-//		return buildJSONString.toString();
-//	}
-		
+		@Override
+		protected void onPostExecute(String jsonString)
+		{
+			JSONString = jsonString;
+		}
+			
+	}//end inner class
+
     @Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_twitter);
 		
-		JSONContent = (TextView) findViewById(R.id.textview_tweets);
+		new GetTwitterTimeline().execute();
 		
+		JSONContent = (TextView) findViewById(R.id.textview_tweets);
+
 		mButtonTweets = (Button) findViewById(R.id.button_tweets);
 		mButtonTweets.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				JSONString = getTwitterPosts();
+				//TwitterActivity.GetTwitterTimeline timeline = new GetTwitterTimeline();
+				//JSONString = timeline.doInBackground(); 
 				JSONContent.setText(JSONString);
 			}
 		});

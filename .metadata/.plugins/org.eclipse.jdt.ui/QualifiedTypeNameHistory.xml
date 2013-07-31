@@ -38,4 +38,7 @@
 <fullyQualifiedTypeName name="edu.rogers.thekillersbattleborntour.R.id"/>
 <fullyQualifiedTypeName name="twitter4j.QueryResult"/>
 <fullyQualifiedTypeName name="twitter4j.auth.AccessToken"/>
+<fullyQualifiedTypeName name="android.os.AsyncTask"/>
+<fullyQualifiedTypeName name="edu.rogers.thekillersbattleborntour.TwitterActivity.GetTwitterTimeline"/>
+<fullyQualifiedTypeName name="twitter4j.conf.ConfigurationBuilder"/>
 </qualifiedTypeNameHistroy>
